@@ -1,7 +1,7 @@
-import { Routes, Route, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import './App.css';
 import React,{useState} from "react";
-import logo from './logo.gif';
+import logo from '../img/logo.gif';
 
 function Home() {
     const [selects,setSelects]=useState();

@@ -10,11 +10,22 @@
   margin-top: 2%;
 }
 
+.Img{
+  height: 40vmin;
+  display: flex;
+  margin-left:28%; 
+  margin-bottom: 1%;
+}
+
 .Back {
   margin: 10px;
-  margin-left: 50%;
+  margin-left: 43%;
 }
 
 .Map {
-  margin-left: 42%;
+  margin-left: 35%;
+}
+
+.Head{
+  font-size: 18px;
 }

@@ -1,7 +1,7 @@
 /*global kakao*/ 
 import React, { useEffect } from 'react'
 import { useNavigate } from "react-router-dom";
-import logo from './logo.gif';
+import img from '../img/28.gif';
 import './App.css';
 
 function Young5(){
@@ -28,10 +28,10 @@ function Young5(){
 
     return (
         <div>
-        <h1>그의 나이 28세</h1>
-        <img src={logo} className="App-logo" alt="logo" />
-        <div className="Map" id="map" style={{width:"300px", height:"280px"}}></div>
-        <button className="Back" onClick={handleClick}>이전화면으로</button>
+          <h1 className="Head">그의 나이 28세</h1>
+          <img src={img} className="Img" alt="img" />
+          <div className="Map" id="map" style={{width:"300px", height:"280px"}}></div>
+          <button className="Back" onClick={handleClick}>이전화면으로</button>
         </div>
     )
 }
