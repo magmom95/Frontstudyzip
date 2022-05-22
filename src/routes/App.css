@@ -1,0 +1,20 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  display: flex;
+  margin-left:28%; 
+  margin-bottom: 5%;
+  margin-top: 2%;
+}
+
+.Back {
+  margin: 10px;
+  margin-left: 50%;
+}
+
+.Map {
+  margin-left: 42%;
+}
