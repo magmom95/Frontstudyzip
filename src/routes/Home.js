@@ -13,29 +13,8 @@ function Home() {
       <select value={selects} onChange={(e) => setSelects(e.target.value)}>
         <option value="2001">7살</option>
         <option value="2009">15살</option>
-        <option value="2019">26살</option>
-        <option value="2019">28살</option>
-
-        {/* <button
-          onClick={() => {
-            alert(selects);
-                   }}
-         >
-          Submit
-        </button> */}
-        {/* {
-        setSelects === 1
-        === 1
-      ?         <button onClick={({...selects})=>{navigate('/about')}}>클릭</button>
-    : null
-      }
-       </select>
-      <hr />
-      <p>{selects}</p>
-      { {selects} === 2
-        ?         <button onClick={({...selects})=>{navigate('/해피')}}>클릭</button>
-      : null
-      } */}
+        <option value="2020">26살</option>
+        <option value="2022">28살</option>
       </select>
       <hr />
       <p>{selects}</p>
