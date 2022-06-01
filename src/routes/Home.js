@@ -1,66 +1,55 @@
 import { useNavigate } from "react-router-dom";
 import "./App.css";
-import React, { useState } from "react";
+import React from "react";
 import logo from "../img/logo.gif";
+import data from "./data";
 
 function Home() {
-  const [selects, setSelects] = useState();
   let navigate = useNavigate();
-  const home = ["어", "디", "든", "문"];
-  const homeList = home.map((homes, index) => (
-    <button
-      key={index}
-      onClick={() => {
-        navigate(`/${index}`);
-      }}
-    >
-      {homes}
-    </button>
-  ));
+  // const homes = ['어', '디', '든', '문'];
+  // const homeList = homes.map((home, index) => (
+  //   <button
+  //     key={home} // key에 index를 넣는 방식은 지양함 => 항목의 순서가 바뀔 수 있는 경우 key에 인덱스를 사용하는 것은 권장하지 않습니다. 이로 인해 성능이 저하되거나 컴포넌트의 state와 관련된 문제가 발생할 수 있습니다.(https://ko.reactjs.org/docs/lists-and-keys.html)
+  //     onClick={() => {
+  //       navigate(`/${index}`);
+  //     }}
+  //   >
+  //     {home}
+  //   </button>
+  // ));
+
+  const homeList = Object.keys(data).map((key) => {
+    return (
+      <button
+        key={key}
+        onClick={() => {
+          navigate(`/${key}`);
+        }}
+      >
+        {data[key].label}
+      </button>
+    );
+  });
 
   return (
     <div>
       <img src={logo} className="App-logo" alt="logo" />
-      <select value={selects} onChange={(e) => setSelects(e.target.value)}>
+      <select onChange={(e) => navigate(e.target.value)}>
         <option value="">골라주세요</option>
-        <option value="2001">7살</option>
-        <option value="2009">15살</option>
-        <option value="2020">26살</option>
-        <option value="2022">28살</option>
+        {Object.keys(data).map((key, idx) => {
+          return <option key={key} value={key}>{`${data[key].age}살`}</option>;
+        })}
       </select>
       <hr />
-      <p>{selects}</p>
-
-      <>{homeList}</>
-
-      {/* <button
-        onClick={() => {
-          navigate("/0");
-        }}
-      >
-        어
-      </button> */}
-      {/* <button
-        onClick={() => {
-          navigate("/1");
-        }}
-      >
-        디
-      </button>
+      {/* <p>{selects}</p> */}
+      {homeList}
       <button
         onClick={() => {
-          navigate("/2");
+          navigate(`/5000`);
         }}
       >
-        든
+        잘못된 버튼
       </button>
-      <button
-        onClick={() => {
-          navigate("/3");
-        }}
-      >
-        문
-      </button> */}
     </div>
   );
 }
