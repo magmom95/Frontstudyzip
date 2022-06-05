@@ -13,10 +13,14 @@ class AccountBookInfoList extends Component {
   }
 
   render() {
-    console.log("d");
     const { list, onRemove, onUpdate } = this.props;
     const infoList = list.map((info) => (
-      <AccountBookInfo key={info.key} data={info} onRemove={onRemove} onUpdate={onUpdate} />
+      <AccountBookInfo
+        key={info.key}
+        data={info}
+        onRemove={onRemove}
+        onUpdate={onUpdate}
+      />
     ));
 
     return <React.Fragment>{infoList}</React.Fragment>;

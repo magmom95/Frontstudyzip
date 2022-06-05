@@ -6,7 +6,7 @@ const getCurrentTimetoString = () => {
 };
 
 // 천 단위 구분기호를 포함한 문자열을 반환(정규식 이용)
-const toCommaString = num => {
+const toCommaString = (num) => {
   return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 };
 
@@ -17,9 +17,9 @@ class AccountBookInfo extends Component {
       type: "분류",
       price: 0,
       usage: "-",
-      date: "-"
+      date: "-",
     },
-    onUpdate: () => console.warn("onUpdate is not defined.")
+    onUpdate: () => console.warn("onUpdate is not defined."),
   };
 
   // 수정을 할 때, 기존의 내용이 변하므로 state를 정의
@@ -28,7 +28,7 @@ class AccountBookInfo extends Component {
     type: "",
     price: "",
     usage: "",
-    date: ""
+    date: "",
   };
 
   remove = () => {
@@ -40,16 +40,16 @@ class AccountBookInfo extends Component {
   toggleEdit = () => {
     const { editing } = this.state;
     this.setState({
-      editing: !editing
+      editing: !editing,
     });
   };
 
   // select와 input 태그의 값이 변할 때 이벤트 처리
-  changeInput = event => {
+  changeInput = (event) => {
     const { name, value } = event.target;
     this.setState({
       [name]: value,
-      date: getCurrentTimetoString()
+      date: getCurrentTimetoString(),
     });
   };
 
@@ -62,7 +62,7 @@ class AccountBookInfo extends Component {
         type: data.type,
         price: data.price,
         usage: data.usage,
-        date: data.date
+        date: data.date,
       });
     }
 
@@ -72,7 +72,7 @@ class AccountBookInfo extends Component {
         type: this.state.type,
         price: this.state.price,
         usage: this.state.usage,
-        date: this.state.date
+        date: this.state.date,
       });
     }
   }
@@ -95,7 +95,7 @@ class AccountBookInfo extends Component {
     const style = {
       border: "1px solid black",
       padding: "5px",
-      margin: "5px"
+      margin: "5px",
     };
 
     const { editing } = this.state;
