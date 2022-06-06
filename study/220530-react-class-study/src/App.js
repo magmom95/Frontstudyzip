@@ -1,14 +1,12 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
 import "./App.css";
 
 import AccountBookForm from "./components/AccountBookForm";
 import AccountBookInfoList from "./components/AccountBookInfoList";
 
-class App extends Component {
-  // field
-  currentId = 1;
-
-  state = {
+function App() {
+  const [state, setState] = useState({
+    currentId: 1,
     list: [
       {
         id: 0,
@@ -19,56 +17,45 @@ class App extends Component {
       },
     ],
     keyword: "",
-  };
+  });
 
-  change = (event) => {
-    this.setState({
-      keyword: event.target.value,
-    });
-  };
+  const change = (event) =>
+    setState((prevent) => ({ ...prevent, keyword: prevent.target.value }));
 
-  add = (data) => {
-    const { list } = this.state;
+  const add = (list) =>
+    setState((predata) => ({ ...predata, id: ++state.currentId }));
 
-    this.setState({
-      list: list.concat({ id: ++this.currentId, ...data }),
-    });
-  };
+  const remove = (id) => setState(state.filter((list) => list.id !== id));
 
-  remove = (id) => {
-    const { list } = this.state;
-    this.setState({
-      list: list.filter((info) => info.id !== id),
-    });
-  };
-
-  update = (id, data) => {
-    const { list } = this.state;
-    this.setState({
-      list: list.map(
-        (info) =>
-          id === info.id // 현재 수정하는 id를 찾음
-            ? { ...info, ...data } // 새로운 내용(data)으로 덮어씀
-            : info // 기존값 유지
-      ),
-    });
-  };
-
-  render() {
-    const { list, keyword } = this.state;
-    const filteredList = list.filter((info) => info.usage.indexOf(keyword) !== -1);
-
-    return (
-      <React.Fragment>
-        <AccountBookForm onAdd={this.add} />
-        <p>
-          <input placeholder="검색어를 입력하세요." onChange={this.change} value={keyword} />
-        </p>
-        <hr />
-        <AccountBookInfoList list={filteredList} onRemove={this.remove} onUpdate={this.update} />
-      </React.Fragment>
+  const update = ({ id, data }) =>
+    setState((prelist) =>
+      prelist.list.map((info) => {
+        return state.list.id === info.id ? { ...info, ...data } : info;
+      })
     );
-  }
+
+  const filteredList = state.list.filter(
+    (info) => info.usage.indexOf(state.list.keyword) !== -1
+  );
+
+  return (
+    <React.Fragment>
+      <AccountBookForm onAdd={add} />
+      <p>
+        <input
+          placeholder="검색어를 입력하세요."
+          onChange={change}
+          value={state.keyword}
+        />
+      </p>
+      <hr />
+      <AccountBookInfoList
+        list={filteredList}
+        onRemove={remove}
+        onUpdate={update}
+      />
+    </React.Fragment>
+  );
 }
 
 export default App;
