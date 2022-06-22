@@ -2,7 +2,7 @@
 
 # Frontstudy ppt 모음
 
-- [1주차](./1주차Front.pptx)
+- [1주차](./pptx/1주차Front.pptx)
 - [2주차](./2주차Front.pptx)
 - [3주차](./3주차Front.pptx)
 - [4주차](./4주차Front.pptx)
