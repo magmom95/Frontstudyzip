@@ -6,3 +6,5 @@
 - [2주차](./pptx/2주차Front.pptx)
 - [3주차](./pptx/3주차Front.pptx)
 - [4주차](./pptx/4주차Front.pptx)
+- [Redux](./pptx/FrontStudy.pptx)
+   
