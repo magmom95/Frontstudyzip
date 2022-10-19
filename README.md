@@ -7,4 +7,5 @@
 - [3주차](./pptx/3주차Front.pptx)
 - [4주차](./pptx/4주차Front.pptx)
 - [Redux](./pptx/FrontStudy.pptx)
+- [Quiz](./pptx/React Study.pptx)
    
